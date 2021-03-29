@@ -17,8 +17,26 @@ jobs:
 
       - name: Create a package called @${{ github.repository }}
         run: |
-          npm init --scope ${{ github.repository_owner }} -y
-          cat package.json
+          echo '{
+            "name": "@jcansdale-test/npm-publish-readme",
+            "version": "1.0.0",
+            "description": "Example publishing an npm package.",
+            "main": "index.js",
+            "scripts": {
+              "test": "echo \"Error: no test specified\" && exit 1"
+            },
+            "repository": {
+              "type": "git",
+              "url": "git+https://github.com/jcansdale-test/npm-publish-readme.git"
+            },
+            "keywords": [],
+            "author": "",
+            "license": "ISC",
+            "bugs": {
+              "url": "https://github.com/jcansdale-test/npm-publish-readme/issues"
+            },
+            "homepage": "https://github.com/jcansdale-test/npm-publish-readme#readme"
+          }' > package.json
 
       - name: Add index.js to package
         run: echo 'exports.sayHello = () => { console.log("Hello from ${{ github.repository }}!") }' > index.js
