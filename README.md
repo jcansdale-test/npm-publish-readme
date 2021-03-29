@@ -1,2 +1,1 @@
-# npm-publish
-Example publishing an npm package.
+[![zeroclick](logo.svg "Discover the experiment")](https://zeroclick.js.org/)
