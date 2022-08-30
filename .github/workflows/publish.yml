@@ -38,6 +38,9 @@ jobs:
             "homepage": "https://github.com/jcansdale-test/npm-publish-readme#readme"
           }' > package.json
 
+      - name: Add README.md to package
+        run: echo 'README for package version ${{ env.VERSION }}' > README.md
+
       - name: Add index.js to package
         run: echo 'exports.sayHello = () => { console.log("Hello from ${{ github.repository }}!") }' > index.js
 
