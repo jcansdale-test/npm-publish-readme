@@ -21,28 +21,11 @@ jobs:
             "name": "@jcansdale-test/npm-publish-readme",
             "version": "1.0.0",
             "description": "Example publishing an npm package.",
-            "main": "index.js",
-            "scripts": {
-              "test": "echo \"Error: no test specified\" && exit 1"
-            },
-            "repository": {
-              "type": "git",
-              "url": "git+https://github.com/jcansdale-test/npm-publish-readme.git"
-            },
-            "keywords": [],
-            "author": "",
-            "license": "ISC",
-            "bugs": {
-              "url": "https://github.com/jcansdale-test/npm-publish-readme/issues"
-            },
-            "homepage": "https://github.com/jcansdale-test/npm-publish-readme#readme"
+            "repository": "https://github.com/jcansdale-test/npm-publish-readme"
           }' > package.json
 
       - name: Add README.md to package
-        run: echo 'README for package version ${{ env.VERSION }}' > README.md
-
-      - name: Add index.js to package
-        run: echo 'exports.sayHello = () => { console.log("Hello from ${{ github.repository }}!") }' > index.js
+        run: echo '### README for package version ${{ env.VERSION }}' > README.md
 
       - name: Set package version to ${{ env.VERSION }}
         run: npm version ${{ env.VERSION }} --no-git-tag-version
