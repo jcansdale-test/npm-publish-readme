@@ -33,7 +33,10 @@ jobs:
       - name: Build the package
         run: npm pack
 
+      - name: Modify README.md
+        run: echo '### Modified package' > README.md
+
       - name: Publish the package
-        run: npm publish
+        run: npm publish jcansdale-test-npm-publish-readme-${{ env.VERSION }}.tgz
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
