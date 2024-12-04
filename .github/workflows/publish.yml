@@ -34,6 +34,6 @@ jobs:
         run: npm pack
 
       - name: Publish the package
-        run: npm publish
+        run: npm publish jcansdale-test-npm-publish-readme-1.0.30.tgz
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
